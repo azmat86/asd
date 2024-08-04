@@ -1,1 +1,62 @@
-we are learning cloudcomputing now a days.
+#include <iostream>
+#include <algorithm> // For std::gcd in C++17 and later
+
+// Function to compute the Greatest Common Divisor (GCD)
+int gcd(int a, int b) {
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+// Function to compute the Least Common Multiple (LCM)
+int lcm(int a, int b) {
+    if (a == 0 || b == 0) return 0; // LCM of 0 with any number is 0
+    return std::abs(a * b) / gcd(a, b);
+}
+
+int main() {
+    int a, b;
+    
+    std::cout << "Enter two integers: ";
+    std::cin >> a >> b;
+    
+    int result = lcm(a, b);
+    
+    std::cout << "The LCM of " << a << " and " << b << " is " << result << std::endl;
+    
+    return 0;
+}
+// HCF
+#include <iostream>
+
+// Function to compute the Greatest Common Divisor (GCD) or Highest Common Factor (HCF)
+int hcf(int a, int b) {
+    // Ensure that a is the larger number
+    if (b > a) {
+        std::swap(a, b);
+    }
+    
+    // Implementing algorithm hello
+    while (b != 0) {
+        int temp = b;
+        b = a % b;
+        a = temp;
+    }
+    return a;
+}
+
+int main() {
+    int a, b;
+    
+    std::cout << "Enter two integers: ";
+    std::cin >> a >> b;
+    
+    int result = hcf(a, b);
+    
+    std::cout << "The HCF (or GCD) of " << a << " and " << b << " is " << result << std::endl;
+    
+    return 0;
+}
